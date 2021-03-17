@@ -3,7 +3,7 @@
     <amount></amount>
   </section>
   <section class="container">
-    <h2>{{ userName }}</h2>
+   <user-data :first-name="firstName" :last-name="lastName"></user-data>
     <h3>{{ user.age }}</h3>
     <button @click="setAge">Change Age</button><br />
     <br />
@@ -27,9 +27,10 @@
 import { reactive, ref, computed } from 'vue';
 import Goals from './components/goals.vue';
 import Amount from './components/amount.vue';
+import UserData from './components/UserData.vue';
 //import { ref } from 'vue';
 export default {
-  components: { Goals, Amount },
+  components: { Goals, Amount, UserData },
   setup() {
     // const uName = ref('Dhara');
     // const uAge = ref(23);
@@ -83,6 +84,7 @@ export default {
       userName: userName,
       setAge: setNewAge,
       firstName,
+      lastName,
       lastNameInput,
       setLastName
     };
