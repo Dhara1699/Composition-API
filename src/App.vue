@@ -1,4 +1,7 @@
 <template>
+  <section>
+    <amount></amount>
+  </section>
   <section class="container">
     <h2>{{ userName }}</h2>
     <h3>{{ user.age }}</h3>
@@ -22,9 +25,10 @@
 <script>
 import { reactive, ref, computed } from 'vue';
 import Goals from './components/goals.vue';
+import Amount from './components/amount.vue';
 //import { ref } from 'vue';
 export default {
-  components: { Goals },
+  components: { Goals, Amount },
   setup() {
     // const uName = ref('Dhara');
     // const uAge = ref(23);
@@ -34,14 +38,12 @@ export default {
     }); */
     const firstName = ref('');
     const lastName = ref('');
-    const user= reactive({
-        age: 23,
+    const user = reactive({
+      age: 23,
     });
-      // name: 'Dhara',
+    // name: 'Dhara',
 
-
-
-   /* watch(age, function(newValue, oldValue) {
+    /* watch(age, function(newValue, oldValue) {
       console.log('Old Age: ' + oldValue );
       console.log('New Age: '+ newValue)
     });*/
@@ -53,7 +55,7 @@ export default {
       user.age = this.user.age + 1;
     }
 
-   /* function setFirstName(event) {
+    /* function setFirstName(event) {
       firstName.value = event.target.value;
     }
 
@@ -71,7 +73,7 @@ export default {
     // return { user: user, userName: userRefs.name, userAge: userRefs.age };
 
     return {
-      /* userName: user.value.name, age: user.value.age,*/user: user,
+      /* userName: user.value.name, age: user.value.age,*/ user: user,
       userName: userName,
       setAge: setNewAge,
       firstName,
